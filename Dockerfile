@@ -1,5 +1,9 @@
 FROM archlinux:latest
 
+LABEL org.opencontainers.image.description="\
+    Container image for kirigami app development. Based on Arch Linux. \
+    An example devcontainer.json is provided in the project's repository."
+
 RUN pacman -Syu --noconfirm \
     cmake \
     git \
