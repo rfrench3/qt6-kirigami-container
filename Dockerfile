@@ -20,7 +20,8 @@ RUN pacman -Syu --noconfirm \
     kirigami-addons \
     qqc2-desktop-style \
     plasma-workspace \
-    just
+    just \
+    qt6-declarative
 
 # Create user with sudo access
 RUN groupadd --gid 1000 user \
