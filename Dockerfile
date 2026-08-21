@@ -22,7 +22,8 @@ RUN pacman -Syu --noconfirm \
     kirigami-addons \
     qqc2-desktop-style \
     qqc2-breeze-style \
-    just 
+    just \
+    noto-fonts
 
 # Create user with sudo access
 RUN groupadd --gid 1000 user \
