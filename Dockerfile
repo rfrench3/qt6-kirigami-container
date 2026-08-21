@@ -35,8 +35,6 @@ RUN groupadd -f input \
     && usermod -a -G input user
 
 # Add welcome message to explain the slightly-off breeze theme
-RUN cat << 'EOF' >> /home/user/.bashrc
-echo "Welcome! The QML version of breeze, qqc2-breeze-style, is applied through QT_QUICK_CONTROLS_STYLE, and it can differ from the normal breeze theme."
-EOF
+RUN echo 'echo "Welcome! The QML version of breeze, qqc2-breeze-style, is applied through QT_QUICK_CONTROLS_STYLE, and it can differ from the normal breeze theme."' >> /home/user/.bashrc
 
 ENV QT_QUICK_CONTROLS_STYLE=org.kde.breeze
