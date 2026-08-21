@@ -11,7 +11,9 @@ RUN pacman -Syu --noconfirm \
     sudo \
     make \
     clang \
-    qt6 \
+    qt6-base \
+    qt6-languageserver \
+    qt6-declarative \
     kirigami \
     kcoreaddons \
     kconfig \
@@ -19,9 +21,8 @@ RUN pacman -Syu --noconfirm \
     kiconthemes \
     kirigami-addons \
     qqc2-desktop-style \
-    plasma-workspace \
-    just \
-    qt6-declarative
+    qqc2-breeze-style \
+    just 
 
 # Create user with sudo access
 RUN groupadd --gid 1000 user \
@@ -33,5 +34,13 @@ RUN groupadd --gid 1000 user \
 RUN groupadd -f input \
     && usermod -a -G input user
 
-# Applies the breeze theme
-ENV XDG_CURRENT_DESKTOP=KDE
+# Add welcome message to explain the slightly-off breeze theme
+RUN cat << 'EOF' >> /home/user/.bashrc
+
+cat << 'BANNER'
+Welcome! The QML version of breeze, qqc2-breeze-style, is applied through QT_QUICK_CONTROLS_STYLE, and it can differ from the normal breeze theme.
+BANNER
+
+EOF
+
+ENV QT_QUICK_CONTROLS_STYLE=org.kde.breeze
