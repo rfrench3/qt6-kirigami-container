@@ -11,6 +11,7 @@ RUN pacman -Syu --noconfirm \
     sudo \
     make \
     clang \
+    ninja \
     qt6-base \
     qt6-languageserver \
     qt6-declarative \
@@ -23,6 +24,7 @@ RUN pacman -Syu --noconfirm \
     qqc2-desktop-style \
     qqc2-breeze-style \
     just \
+    bash-completion \
     noto-fonts
 
 # Create user with sudo access
